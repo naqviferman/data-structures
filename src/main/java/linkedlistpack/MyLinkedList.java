@@ -20,8 +20,12 @@ public class MyLinkedList<E>  {
         size = 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void addFirst(E data) {
-        Node<E> node = new Node<E>(data);
+        Node<E> node = new Node<>(data);
         node.next = head;
         head = node;
         size++;
@@ -34,13 +38,28 @@ public class MyLinkedList<E>  {
             return;
         }
 
-        Node<E> node = new Node<E>(data);
+        Node<E> node = new Node<>(data);
         Node<E> curr = head;
 
         while (curr.next != null) {
             curr = curr.next;
         }
         curr.next = node;
+        size++;
+    }
+
+    public E removeFirst() {
+        if (head == null)
+            return null;
+
+        Node<E> curr = head;
+        head = head.next;
+        size--;
+        return curr.data;
+    }
+
+    public void removeLast() {
+
     }
 
     public void printList() {
