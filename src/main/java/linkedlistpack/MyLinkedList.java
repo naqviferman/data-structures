@@ -1,6 +1,6 @@
 package linkedlistpack;
 
-public class MyLinkedList<E>  {
+public class MyLinkedList<E> {
 
     private Node<E> head;
     private int size;
@@ -58,8 +58,23 @@ public class MyLinkedList<E>  {
         return curr.data;
     }
 
-    public void removeLast() {
+    public E removeLast() {
+        if (head == null)
+            return null;
 
+        if (head.next == null) {
+            return removeFirst();
+        }
+
+        Node<E> prev = null;
+        Node<E> curr = head;
+        while (curr.next != null) {
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = null;
+        size--;
+        return curr.data;
     }
 
     public void printList() {

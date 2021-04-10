@@ -6,8 +6,8 @@ public class Driver {
 
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
 
-        Integer removeFirst = myLinkedList.removeFirst();
-        System.out.println("removeFirst = " + removeFirst);
+        Integer removeLast = myLinkedList.removeLast();
+        System.out.println("removeLast = " + removeLast);
 
         myLinkedList.addFirst(10);
         myLinkedList.addFirst(20);
@@ -16,8 +16,8 @@ public class Driver {
         System.out.println("getSize = " + myLinkedList.getSize());
         myLinkedList.printList();
         System.out.println("------------------------");
-        removeFirst = myLinkedList.removeFirst();
-        System.out.println("removeFirst = " + removeFirst);
+        removeLast = myLinkedList.removeLast();
+        System.out.println("removeLast = " + removeLast);
         System.out.println("getSize = " + myLinkedList.getSize());
         myLinkedList.printList();
 
