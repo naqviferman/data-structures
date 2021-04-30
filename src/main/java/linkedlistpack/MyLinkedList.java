@@ -77,6 +77,51 @@ public class MyLinkedList<E> {
         return curr.data;
     }
 
+    /*public boolean remove(E obj) {
+        if (head == null)
+            return false;
+
+        if (head.data == obj) {
+            removeFirst();
+            return true;
+        }
+
+        Node<E> prev = null;
+        Node<E> curr = head;
+
+        while (curr != null) {
+            if (((Comparable<E>)curr.data).compareTo(obj) == 0) {
+                prev.next = curr.next;
+                size--;
+                return true;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        return false;
+    }*/
+
+    public boolean remove(E obj) {
+
+        Node<E> prev = null;
+        Node<E> curr = head;
+
+        while (curr != null) {
+            if (((Comparable<E>)curr.data).compareTo(obj) == 0) {
+                if (curr == head) {
+                    removeFirst();
+                    return true;
+                }
+                prev.next = curr.next;
+                size--;
+                return true;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        return false;
+    }
+
     public void printList() {
         Node<E> curr = head;
         while (curr != null) {
