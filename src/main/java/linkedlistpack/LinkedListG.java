@@ -1,6 +1,6 @@
 package linkedlistpack;
 
-public class MyLinkedList<E> {
+public class LinkedListG<E> {
 
     private Node<E> head;
     private int size;
@@ -15,7 +15,7 @@ public class MyLinkedList<E> {
         }
     }
 
-    public MyLinkedList() {
+    public LinkedListG() {
         head = null;
         size = 0;
     }
