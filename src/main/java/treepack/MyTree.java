@@ -46,6 +46,25 @@ public class MyTree {
         }
     }
 
+    public boolean contains(int val ) {
+        return contains(val, root);
+    }
+
+    private boolean contains(int val, Node node) {
+        if (val == node.data)
+            return true;
+        if (val <= node.data) {
+            if (node.left == null)
+                return false;
+            return contains(val, node.left);
+        }
+        else {
+            if (node.right == null)
+                return false;
+            return contains(val, node.right);
+        }
+    }
+
     public void printInOrder() {
         printInOrder(root);
     }
@@ -57,4 +76,29 @@ public class MyTree {
         if (node.right != null)
             printInOrder(node.right);
     }
+
+    public void printPreOrder() {
+        printPreOrder(root);
+    }
+
+    private void printPreOrder(Node node) {
+        if (node != null) {
+            System.out.println(node.data);
+            printPreOrder(node.left);
+            printPreOrder(node.right);
+        }
+    }
+
+    public void printPostOrder() {
+        printPostOrder(root);
+    }
+
+    private void printPostOrder(Node node) {
+        if (node != null) {
+            printPostOrder(node.left);
+            printPostOrder(node.right);
+            System.out.println(node.data);
+        }
+    }
+
 }
