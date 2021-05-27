@@ -1,45 +1,53 @@
 package linkedlistpack;
 
-public class SinglyLinkedListInt implements ListI{
+public class DoublyLinkedListInt implements ListI{
 
     private class Node {
         private int data;
         private Node next;
+        private Node prev;
 
         public Node(int data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
     private Node head;
+    private Node tail;
     private int size;
 
-    public SinglyLinkedListInt() {
+    public DoublyLinkedListInt() {
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
     @Override
     public void addFirst(int data) {
         Node node = new Node(data);
+        if (head == null) {
+            head = node;
+            tail = node;
+            return;
+        }
         node.next = head;
+        head.prev = node;
         head = node;
         size++;
     }
 
     @Override
     public void addLast(int data) {
-        if (head == null) {
+        Node node = new Node(data);
+        if (tail == null) {
             addFirst(data);
             return;
         }
-        Node curr = head;
-        while (curr.next != null) {
-            curr = curr.next;
-        }
-        curr.next = new Node(data);
-        size++;
+        tail.next = node;
+        node.prev = tail;
+        node = tail;
     }
 
     @Override
