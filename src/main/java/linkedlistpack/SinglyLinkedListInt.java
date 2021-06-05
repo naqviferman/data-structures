@@ -1,6 +1,6 @@
 package linkedlistpack;
 
-public class SinglyLinkedListInt implements ListI{
+public class SinglyLinkedListInt implements ListI {
 
     private class Node {
         private int data;
@@ -18,6 +18,11 @@ public class SinglyLinkedListInt implements ListI{
     public SinglyLinkedListInt() {
         this.head = null;
         this.size = 0;
+    }
+
+    @Override
+    public int getSize() {
+        return size;
     }
 
     @Override
@@ -40,6 +45,14 @@ public class SinglyLinkedListInt implements ListI{
         }
         curr.next = new Node(data);
         size++;
+    }
+
+    @Override
+    public void removeFirst() {
+        if (head == null)
+            return;
+        head = head.next;
+        size--;
     }
 
     @Override

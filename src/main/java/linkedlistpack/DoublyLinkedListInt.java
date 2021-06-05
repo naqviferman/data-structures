@@ -1,6 +1,6 @@
 package linkedlistpack;
 
-public class DoublyLinkedListInt implements ListI{
+public class DoublyLinkedListInt implements ListI {
 
     private class Node {
         private int data;
@@ -25,16 +25,21 @@ public class DoublyLinkedListInt implements ListI{
     }
 
     @Override
+    public int getSize() {
+        return size;
+    }
+
+    @Override
     public void addFirst(int data) {
         Node node = new Node(data);
         if (head == null) {
             head = node;
             tail = node;
-            return;
+        } else {
+            node.next = head;
+            head.prev = node;
+            head = node;
         }
-        node.next = head;
-        head.prev = node;
-        head = node;
         size++;
     }
 
@@ -48,6 +53,20 @@ public class DoublyLinkedListInt implements ListI{
         tail.next = node;
         node.prev = tail;
         node = tail;
+        size++;
+    }
+
+    @Override
+    public void removeFirst() {
+        if (head == null)
+            return;
+
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+        }
+        size--;
     }
 
     @Override
