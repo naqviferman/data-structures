@@ -9,4 +9,6 @@ public interface ListI {
     void addLast(int data);
 
     void removeFirst();
+
+    void removeLast();
 }

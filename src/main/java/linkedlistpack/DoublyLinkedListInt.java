@@ -70,6 +70,17 @@ public class DoublyLinkedListInt implements ListI {
     }
 
     @Override
+    public void removeLast() {
+        if (head == null || head == tail) {
+            removeFirst();
+            return;
+        }
+        tail.prev.next = null;
+        tail = tail.prev;
+        size--;
+    }
+
+    @Override
     public String toString() {
         Node curr = head;
         while (curr != null) {

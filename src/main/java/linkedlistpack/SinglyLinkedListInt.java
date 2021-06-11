@@ -56,6 +56,23 @@ public class SinglyLinkedListInt implements ListI {
     }
 
     @Override
+    public void removeLast() {
+        if (head == null || head.next == null) {
+            removeFirst();
+            return;
+        }
+
+        Node curr = head;
+        Node prev = null;
+        while (curr.next != null) {
+            prev = curr;
+            curr = curr.next;
+        }
+        prev.next = null;
+        size--;
+    }
+
+    @Override
     public String toString() {
         Node curr = head;
         while (curr != null) {
