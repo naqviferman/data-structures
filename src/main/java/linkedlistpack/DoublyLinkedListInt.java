@@ -81,6 +81,18 @@ public class DoublyLinkedListInt implements ListI {
     }
 
     @Override
+    public boolean contains(int data) {
+        Node curr = head;
+        while (curr != null) {
+            if (curr.data == data) {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         Node curr = head;
         while (curr != null) {

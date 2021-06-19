@@ -11,4 +11,6 @@ public interface ListI {
     void removeFirst();
 
     void removeLast();
+
+    boolean contains(int data);
 }
